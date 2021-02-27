@@ -4,7 +4,7 @@ import pandas as pd
 if __name__ == '__main__':
     flight_file: pd.DataFrame = pd.read_csv("FlightTime.csv")
 
-    flight_file = flight_file[flight_file['Flight Time.1'] > 230]
+    flight_file = flight_file[flight_file['Flight Time'] > 230]
 
     d = 1741.16
     l_ori = -87.9
@@ -12,15 +12,13 @@ if __name__ == '__main__':
 
     target_flight_time = 0.117 * d + 0.517 * (l_ori - l_des) + 20
 
-    means: pd.DataFrame = flight_file.groupby("Carrier").mean()[["Arrival Delay", "Departure Delay", "Flight Time.1"]]
+    means: pd.DataFrame = flight_file.groupby("Carrier").mean()[["Arrival Delay", "Departure Delay", "Flight Time"]]
 
-    means["Target Flight Time"] = target_flight_time + means["Arrival Delay"] + means["Departure Delay"]
+    means["Typical Flight Time"] = target_flight_time + means["Arrival Delay"] + means["Departure Delay"]
 
-    means["Time Added"] = means["Flight Time.1"] - means["Target Flight Time"]
+    means["Time Added"] = means["Flight Time"] - means["Typical Flight Time"]
 
     means = means.sort_values("Time Added")
-
-    means = means.rename(columns={"Flight Time.1": "Flight Time"})
 
     means.to_csv("Case_study_fastest_airlines_part_1.csv")
 
