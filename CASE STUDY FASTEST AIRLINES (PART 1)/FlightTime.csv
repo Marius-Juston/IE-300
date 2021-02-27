@@ -1,4 +1,4 @@
-Flight Time,Carrier,Flight Number,Origin,Destination,Departure Time,Departure Delay,Arrival Time,Arrival Delay,Flight Time
+Flight Date,Carrier,Flight Number,Origin,Destination,Departure Time,Departure Delay,Arrival Time,Arrival Delay,Flight Time
 11/1/2015,AA,111,ORD,LAX,1709,-1,1952,2,283
 11/1/2015,AA,1092,ORD,LAX,2021,-4,2243,-20,262
 11/1/2015,AA,1081,ORD,LAX,841,-4,1052,-33,251
