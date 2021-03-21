@@ -11,6 +11,7 @@ if __name__ == '__main__':
     l_des = -118.41
 
     target_flight_time = 0.117 * d + 0.517 * (l_ori - l_des) + 20
+    print(target_flight_time)
 
     means: pd.DataFrame = flight_file.groupby("Carrier").mean()[["Arrival Delay", "Departure Delay", "Flight Time"]]
 
@@ -23,7 +24,7 @@ if __name__ == '__main__':
     means.to_csv("Case_study_fastest_airlines_part_1.csv")
 
     ax = means.plot.bar(y="Time Added", title="Carrier vs Time Added", xlabel="Carrier",
-                        ylabel="Time added (min)", rot=0)
+                        ylabel="Time added (min)", rot=0, grid=True)
 
     for p in ax.patches:
         ax.annotate(str(round(p.get_height(), 3)), (p.get_x() * 1.005, max(p.get_height(), 0.1) * 1.005))

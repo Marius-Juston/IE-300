@@ -52,7 +52,7 @@ def example_1():
         "Airline": "Delta"
     })
     print(data)
-    print(calculated_probability)
+    print("P(Y) =", calculated_probability[0], "P(N) =", calculated_probability[1])
     print(arg_max(calculated_probability))
 
 
@@ -75,7 +75,7 @@ def exercise_1():
         "Weather": "Good"
     })
 
-    print(calculated_probability)
+    print("P(Y) =", calculated_probability[0], "P(N) =", calculated_probability[1])
     print(arg_max(calculated_probability))
 
 
