@@ -13,9 +13,11 @@ if __name__ == '__main__':
     target_flight_time = 0.117 * d + 0.517 * (l_ori - l_des) + 20
     print(target_flight_time)
 
-    means: pd.DataFrame = flight_file.groupby("Carrier").mean()[["Arrival Delay", "Departure Delay", "Flight Time"]]
+    average_arr_delay, average_departure_delay = flight_file.mean()[['Arrival Delay', "Departure Delay"]]
 
-    means["Typical Flight Time"] = target_flight_time + means["Arrival Delay"] + means["Departure Delay"]
+    means: pd.DataFrame = flight_file.groupby("Carrier").mean()[["Flight Time"]]
+
+    means["Typical Flight Time"] = target_flight_time + average_arr_delay + average_departure_delay
 
     means["Time Added"] = means["Flight Time"] - means["Typical Flight Time"]
 
