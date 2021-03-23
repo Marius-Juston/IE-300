@@ -73,7 +73,7 @@ def exercise_1():
         "Destination": "ATL",
         "Airline": "Southwest",
         "Weather": "Good"
-    })
+    }, m=4)
 
     print("P(Y) =", calculated_probability[0], "P(N) =", calculated_probability[1])
     print(arg_max(calculated_probability))
