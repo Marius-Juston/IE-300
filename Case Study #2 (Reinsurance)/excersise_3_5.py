@@ -5,7 +5,7 @@ import pandas as pd
 def hill_estimator(x, k, x_k_n):
     n = x.shape[0]
 
-    return 1 / k * np.sum(np.log(x[n - k:])) - np.log(x_k_n)
+    return 1 / k * np.sum(np.log(x[n - k:]) - np.log(x_k_n))
 
 
 def estimator_3(x, k, R):

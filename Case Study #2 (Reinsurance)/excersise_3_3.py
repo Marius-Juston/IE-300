@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
 
+
 def estimator_1(x, R):
-    diff = np.max(x - R, 0)
+    diff = (x - R)
+    diff[diff < 0] = 0
 
     return np.sum(diff) / x.shape[0]
 
